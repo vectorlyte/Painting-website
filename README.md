@@ -1,6 +1,6 @@
-#Art Portforlio Site
+# Art Portforlio Site
 
-##future plans
+## future plans
 
 -Ecommerce integration
 
