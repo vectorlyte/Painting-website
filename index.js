@@ -2,40 +2,70 @@ const homeBtn = "home-btn";
 const galleryBtn = "gallery-btn";
 const aboutBtn = "about-btn";
 const buyBtn = "buy-btn";
-const welcomeSection = document.getElementById("welcome");
-const gallerySection = document.getElementById("gallery");
-const aboutSection = document.getElementById("about");
-const storeSection = document.getElementById("store");
-const sectionArr = [welcomeSection, gallerySection, aboutSection, storeSection];
 const navLinks = document.querySelectorAll('.navLink');
-const sections = document.querySelector('section')
+const sections = document.querySelectorAll('section')
 const r = document.querySelector(':root');
 const rs = getComputedStyle(r);
 const styles = document.styleSheets;
 let id = "";
 let index = 0;
+let prevSec = sections[0];
+let prevIndex;
 
-sections.addEventListener('transitionstart', () => {
-    hideOverflow();
-});
+console.log(sections)
+function displaySection(currentSec){
+    for(let i = 0; i < sections.length; i++){
+        if(currentSec != prevSec){
 
-function hideOverflow(){
-    for(let i = 0; i < sectionArr.length; i++){
-        if(i === index){  
-            r.style.setProperty(`--${sectionArr[i].getAttribute('id')}-overflow`, "visible");
-        } else {
-            r.style.setProperty(`--${sectionArr[i].getAttribute('id')}-overflow`, "hidden");
+            if(sections[i] == currentSec){  
+                r.style.setProperty(`--${sections[i].getAttribute('id')}-overflow`, "visible");
+                index = i;
+            } else if(sections[i] == prevSec){
+                prevIndex = i;
+                r.style.setProperty(`--${sections[i].getAttribute('id')}-overflow`, "hidden");
+            } else {
+                r.style.setProperty(`--${sections[i].getAttribute('id')}-overflow`, "hidden");
+            }
+
+        switch(sections[i]){
+            case currentSec:
+            sections[i].style.zIndex = "2";
+            break;
+            case prevSec:
+                sections[i].style.zIndex = "1";
+                sections[i].style.left = "0";
+                sections[i].style.animation = "fade";
+                sections[i].style.animationDuration = ".4s";
+                sections[i].style.animationFillMode = 
+                "forwards";
+            break;
+            default:
+            sections[i].style.zIndex = "0";
+            sections[i].style.left = "0";
+            sections[i].style.animation = "";
+            sections[i].style.animationDuration = "";
+            sections[i].style.animationFillMode = "";
+            sections[i].style.opacity = 0;
         }
+
+        if(i+1 == sections.length){
+            prevSec = currentSec;
+            currentSec.style.animation = findAnimation();
+            currentSec.style.animationDuration = ".9s";
+            currentSec.style.animationFillMode = "forwards";
+            currentSec.style.opacity = 1;
+        };
     }
 }
 
+}
 
-if(localStorage)  {
-    index = Math.abs(localStorage.getItem("lastIndex")/100);
-    r.style.setProperty('--translate-timing', "0s");
-    r.style.setProperty('--next-pos', `0vw`);
-    r.style.setProperty('--next-pos', `${localStorage.getItem("lastIndex")}vw`);
-    hideOverflow();
+function findAnimation() {
+    if(index > prevIndex){
+        return "slideInRight";
+    } else {
+        return "slideInLeft";
+    }
 }
 
 navLinks.forEach((navLink) => {
@@ -43,31 +73,17 @@ navLinks.forEach((navLink) => {
         id = navLink.getAttribute('id');
         switch(id){
             case homeBtn:
-                setIndex(0);
+                displaySection(sections[0]);
             break;
             case galleryBtn:
-                setIndex(-1);
+                displaySection(sections[1]);
             break;
             case aboutBtn:
-                setIndex(-2);
+                displaySection(sections[2]);
             break;
             case buyBtn:
-                setIndex(-3);
+                displaySection(sections[3]);
             break;
         }
-
     })
 });
-
-function setIndex(num){
-    let int = num * 100;
-    r.style.setProperty('--prev-pos', rs.getPropertyValue('--index-pos'));
-    r.style.setProperty('--next-pos', `${int}vw`);
-    r.style.setProperty('--translate-timing', ".7s");
-    // console.log(rs.getPropertyValue('--index-pos'));
-    // console.log(rs.getPropertyValue('--next-pos'));
-    let lastIndex = JSON.stringify(int);
-    index = Math.abs(lastIndex/100);
-    localStorage.setItem("lastIndex", lastIndex);
-}
-
