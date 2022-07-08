@@ -252,4 +252,11 @@ p{
         gap: 5px;
         width: 90%;
     }
+    
+    nav{
+    animation-name: none;
+    }
+    nav:hover{
+    animation-name: none;
+    }
 }
