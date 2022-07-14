@@ -16,74 +16,62 @@ body{
 }
 
 nav {
-    top: 0;
     width: 100vw;
-    display: flex;
-    justify-content: end;
-    align-items: center;
-    height: 5vh;
+    height: 10vh;
     position: fixed;
-    background-color: rgba(255, 255, 255, 0.776);
-        color: black;
-    z-index: 1;
-    font-size: 1rem;
-    animation-name: navShrink;
-    animation-duration: .7s;
-    animation-fill-mode: forwards;
+    display: -webkit-flex;
+        display: flex;
+        -webkit-justify-content: center;
+        justify-content: center;
+    align-items: center;
+    gap: 20px;
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    background-color: rgba(255, 255, 255, 0.5);
+    color: black;
+    font-size: 1.3rem;
     z-index: 3;
-}
-
-nav::before{
-    content:"";
-    position: absolute;
-    top: 20px;
-    width: 100vw;
-    height: 180px;
-}
-
-nav:hover{
-    animation-name: navGrow;
-    animation-duration: .7s;
-    animation-fill-mode: forwards;
-    animation-play-state: running;
+    font-weight: 350;
+    box-sizing: border-box;
 }
 
 
 
-@keyframes navGrow{
-    from{font-size: 1rem;
-        height: 5vh;}
-        to{height: 10vh;
-    background-color: rgba(0, 0, 0, 0.292);
-    color: white;
-            font-size: 1.5rem;}
+.nav-menu{
+        list-style: none;
+        display: -webkit-flex;
+        display: flex;
+        gap: 60px;
 }
 
-@keyframes navShrink {
-    from {
-        height: 10vh;
-        font-size: 1.5rem;
-        background-color: rgba(0, 0, 0, 0.292);
-            color: white;
-    }
-    to {
-        font-size: 1rem;
-        height: 5vh;
-        background-color: rgba(255, 255, 255, 0.776);
-            color: black;
-    }
-
-}
 
 a{
-    margin-right: 20px;
     text-decoration: none;
     text-transform: capitalize;
     z-index: 1;
+    transition: 0.7s ease;
 }
 
 a:hover{
-    color: black;
+    color: rgba(0, 0, 0, 0.477);
+    cursor: pointer;
+}
+
+.hamburger{
+    position: absolute;
+    display: none;
+    cursor: pointer;
+    margin-right: 24px;
+}
+
+.bar{
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    -webkit-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    background-color: black;
 }
 
 section {
@@ -166,7 +154,7 @@ header{
     margin: auto;
     margin-top: 15vh;
     width: 80%;
-    left: 100px;
+    height: auto;
     background-image: linear-gradient(to right, rgba(56, 31, 75, 0.493), rgba(156, 156, 156, 0.126));
     box-shadow: 17px 41px 56px 0px rgba(0, 0, 0, 0.35);
     overflow: hidden;
@@ -204,13 +192,14 @@ p{
 }
 
 #img-container{
-    width: 100%;
+    /* width: 100%; */
     display: flex;
     flex-wrap: nowrap;
 }
 
 #img-container img{
-    width: 33.33%
+    width: 33.33%;
+        height: 33.33%;
 }
 
 
@@ -223,9 +212,61 @@ p{
     h1 span{
         font-size: 3rem;
     }
-    a{
-        font-size: 1rem;
+
+
+    nav{
+        height: 40px;
+            -webkit-justify-content: end;
+        justify-content: end;
     }
+        nav.active {
+            -webkit-backdrop-filter: none;
+            backdrop-filter: none;
+        }
+
+    .hamburger{
+        display: block;
+    }
+
+    .hamburger.active .bar:nth-child(2){
+        opacity: 0;
+    }
+
+    .hamburger.active .bar:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+    .hamburger.active .bar:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+
+    .nav-menu {
+        position: relative;
+        display: -webkit-flex;
+            display: flex;
+            -webkit-justify-content: center;
+            justify-content: center;
+            align-items: center;
+        left: -100%;
+        gap: 0;
+        top: 95px;
+        flex-direction: column;
+        width: 100%;
+        text-align: center;
+        transition: 0.3s;
+        
+        }
+    
+        .nav-item {
+            margin: 16px 0;
+        }
+    
+        .nav-menu.active {
+            left: 0;
+            -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(10px);
+    background-color: rgba(255, 255, 255, 0.5);
+        }
+    
     #img-container{
         position: relative;
         animation: slideShow;
@@ -252,11 +293,5 @@ p{
         gap: 5px;
         width: 90%;
     }
-    
-    nav{
-    animation-name: none;
-    }
-    nav:hover{
-    animation-name: none;
-    }
+
 }

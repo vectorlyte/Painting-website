@@ -9,10 +9,25 @@
 </head>
 <body>
     <nav>
-        <a class="navLink" id="home-btn" >home</a>
-        <a class="navLink" id="gallery-btn" >gallery</a>
-        <a class="navLink" id="about-btn" >about</a>
-        <a class="navLink" id="buy-btn" >buy</a>
+        <div class="nav-menu">
+            <div class="nav-item">
+            <a class="navLink" id="home-btn" >home</a>
+            </div>
+            <div class="nav-item">
+            <a class="navLink" id="gallery-btn">gallery</a>
+            </div>
+            <div class="nav-item">
+            <a class="navLink" id="about-btn" >about</a>
+            </div>
+            <div class="nav-item">
+            <a class="navLink" id="buy-btn" >shop</a>
+            </div>
+        </div>
+        <div class="hamburger">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
     </nav>
     <section id="welcome" class="section">
         <header>
@@ -131,5 +146,6 @@
             </div>
     </section>
     <script src="index.js"></script>
+    <script src="navController.js"></script>
 </body>
 </html>

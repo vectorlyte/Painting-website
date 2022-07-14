@@ -1,7 +1,4 @@
-const homeBtn = "home-btn";
-const galleryBtn = "gallery-btn";
-const aboutBtn = "about-btn";
-const buyBtn = "buy-btn";
+
 const navLinks = document.querySelectorAll('.navLink');
 const sections = document.querySelectorAll('section')
 const r = document.querySelector(':root');
@@ -72,16 +69,16 @@ navLinks.forEach((navLink) => {
     navLink.addEventListener('click', function(){
         id = navLink.getAttribute('id');
         switch(id){
-            case homeBtn:
+            case navLinks[0].getAttribute("id"):
                 displaySection(sections[0]);
             break;
-            case galleryBtn:
+            case navLinks[1].getAttribute("id"):
                 displaySection(sections[1]);
             break;
-            case aboutBtn:
+            case navLinks[2].getAttribute("id"):
                 displaySection(sections[2]);
             break;
-            case buyBtn:
+            case navLinks[3].getAttribute("id"):
                 displaySection(sections[3]);
             break;
         }
