@@ -109,10 +109,10 @@ section {
     /* height: auto; */
 }
 
-#shop-background{
+/* #shop-background{
     
     /* background-color: rgb(186, 199, 208); */
-}
+
 
 #shop-heading{
     display: flex;
@@ -227,7 +227,7 @@ header{
     margin: auto;
     margin-top: 15vh;
     width: 80%;
-    left: 100px;
+    height: auto;
     background-image: linear-gradient(to right, rgba(56, 31, 75, 0.493), rgba(156, 156, 156, 0.126));
     box-shadow: 17px 41px 56px 0px rgba(0, 0, 0, 0.35);
     overflow: hidden;
@@ -270,7 +270,8 @@ p{
 }
 
 #img-container img{
-    width: 33.33%
+    width: 33.33%;
+        height: 33.33%;
 }
 
 #modal {
@@ -405,8 +406,12 @@ p{
     h1 span{
         font-size: 3rem;
     }
-    a{
-        font-size: 1rem;
+
+
+    nav{
+        height: 40px;
+            -webkit-justify-content: end;
+        justify-content: end;
     }
 
     nav{
