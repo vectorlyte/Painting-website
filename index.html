@@ -9,10 +9,28 @@
 </head>
 <body>
     <nav>
-        <a class="navLink" id="home-btn" >home</a>
-        <a class="navLink" id="gallery-btn" >gallery</a>
-        <a class="navLink" id="about-btn" >about</a>
-        <a class="navLink" id="buy-btn" >buy</a>
+        <div class="nav-menu">
+            <div class="nav-item">
+            <a class="navLink" id="home-btn" >home</a>
+            </div>
+            <div class="nav-item">
+            <a class="navLink" id="gallery-btn">gallery</a>
+            </div>
+            <div class="nav-item">
+            <a class="navLink" id="about-btn" >about</a>
+            </div>
+            <div class="nav-item">
+            <a class="navLink" id="shop-btn" >shop</a>
+            </div>
+            <div class="nav-item">
+            <a class="navLink" href="cart.html">Cart</a>
+            </div>
+        </div>
+        <div class="hamburger">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
     </nav>
     <section id="welcome" class="section">
         <header>
@@ -123,13 +141,30 @@
     <p id="about-para">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Delectus similique alias beatae totam deserunt, sit corporis eveniet. Natus dolor ipsam tenetur iusto perferendis consectetur soluta aliquam odio suscipit ea possimus rerum omnis aut repudiandae quidem voluptates, quam pariatur ratione ipsa quae itaque eum accusantium, earum minus. Quidem facere eius, alias accusantium natus, numquam illum voluptatibus voluptas fugit praesentium cumque voluptatum? Voluptate assumenda doloremque quo maiores corporis cum, accusantium ut architecto earum provident voluptas alias enim veniam nemo necessitatibus. Assumenda alias reiciendis neque aliquid vitae placeat ipsa adipisci ullam magnam culpa, ipsum qui asperiores nemo corrupti aperiam nobis incidunt quidem minima exercitationem enim perferendis mollitia eaque. Veniam modi, deserunt adipisci, ullam harum dolorum minima doloremque facere neque soluta, sequi accusamus. Facilis nesciunt, voluptas eveniet rerum mollitia distinctio iure ducimus ut quia blanditiis officia numquam fuga ipsa architecto nemo quis nobis eaque magni? Commodi quaerat facilis nihil, ipsam earum deserunt non cupiditate possimus a, maxime assumenda dolore, sed autem voluptates harum obcaecati excepturi! Dignissimos consequuntur, doloribus molestias provident fugiat voluptatem, amet cum omnis dolorum neque ex voluptates repellendus deserunt perferendis non hic nulla distinctio facere cumque quo, eaque tempora? Temporibus mollitia ut aspernatur delectus quod saepe, iure ducimus nobis, ratione autem aut?</p>
     </section>
     <section id="store">
-        <h2>Paintings For Sale</h2>
-        <div id="painting-container">
-         <img src="images\Screenshot (57).png" alt="">
-            <img src="images\Screenshot (58).png" alt="">
-            <img src="images\Screenshot (59).png" alt="">
-            </div>
+        <div id="shop-background">
+        <div id="shop-heading">
+            <h2 id="shop-title">Shop</h2>
+        </div>
+        <div id="listing-container">
+        </div>
+        <div id="modal">
+            <!-- <div class="modal-content">
+                <img class="listing-modal-img" src="images/IMG_2007 - Copy (2)2.JPG" alt="">
+                    <div class="listing-modal-info">
+                        <div class="exit-btn">
+                            <span class="X1"></span>
+                            <span class="X2"></span>
+                        </div>
+                        <h3 class="listing-title">Emerald Pines</h3>
+                        <p class="listing-modal-desc">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Et quo, magni odit reprehenderit accusantium delectus incidunt ipsum aliquam excepturi eum.</p>
+                        <button id="add-item">add to cart</button>
+                    </div>
+            </div> -->
+        </div>
+        </div>
     </section>
     <script src="index.js"></script>
+    <script src="navController.js"></script>
+    <script src="shop-manager.js"></script>
 </body>
 </html>

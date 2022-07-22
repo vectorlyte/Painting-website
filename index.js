@@ -1,7 +1,4 @@
-const homeBtn = "home-btn";
-const galleryBtn = "gallery-btn";
-const aboutBtn = "about-btn";
-const buyBtn = "buy-btn";
+
 const navLinks = document.querySelectorAll('.navLink');
 const sections = document.querySelectorAll('section')
 const r = document.querySelector(':root');
@@ -12,7 +9,12 @@ let index = 0;
 let prevSec = sections[0];
 let prevIndex;
 
-console.log(sections)
+checkHash();
+
+window.onhashchange = function() {
+checkHash();
+}
+
 function displaySection(currentSec){
     for(let i = 0; i < sections.length; i++){
         if(currentSec != prevSec){
@@ -71,19 +73,35 @@ function findAnimation() {
 navLinks.forEach((navLink) => {
     navLink.addEventListener('click', function(){
         id = navLink.getAttribute('id');
-        switch(id){
-            case homeBtn:
+        parent.location.hash = id.substring(0,id.length-4)+"Page"
+        setLocation(id);
+        window.scrollTo(0,0);
+
+    })
+});
+
+function setLocation(location) {
+            switch(location){
+            case navLinks[0].getAttribute("id"):
                 displaySection(sections[0]);
             break;
-            case galleryBtn:
+            case navLinks[1].getAttribute("id"):
                 displaySection(sections[1]);
             break;
-            case aboutBtn:
+            case navLinks[2].getAttribute("id"):
                 displaySection(sections[2]);
             break;
-            case buyBtn:
+            case navLinks[3].getAttribute("id"):
                 displaySection(sections[3]);
             break;
         }
-    })
-});
+}
+
+function checkHash() {
+    if(window.location.hash){
+        let hash = window.location.hash;
+        setLocation(hash.substring(1, hash.length).substring(0, hash.length-5) + "-btn");
+    } else {
+        parent.location.hash = "homePage"
+    }
+}   
