@@ -1,11 +1,23 @@
 # Art Portforlio Site
 
-## future plans
+## Current Version Includes:
 
--Ecommerce integration
+Home page
 
--Mobile compatibility
+![Features](/backgrounds/Screenshot(78).png)
 
--Modals for viewing paintings in greater resolution
+Gallery
 
--Engaging home page that directs users to the other pages on the site
+![Features](/backgrounds/Screenshot(79).png)
+
+Shop
+
+![Features](/backgrounds/Screenshot(80).png)
+
+Modals for adding items to cart
+
+![Features](/backgrounds/Screenshot(81).png)
+
+Cart page where items can be removed
+
+![Features](/backgrounds/Screenshot(82).png)
